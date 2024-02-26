@@ -1,12 +1,20 @@
+
+// Importação dos módulos necessários
 const express = require('express');
 const bodyParser = require('body-parser');
+
+// Inicialização do Express
 const app = express();
 const port = 3000;
 
+// Configuração para usar o middleware body-parser para interpretar dados do corpo da requisição
 app.use(bodyParser.urlencoded({ extended: true }));
+// Configuração da view engine EJS
 app.set('view engine', 'ejs');
+// Configuração para servir arquivos estáticos na pasta 'public'
 app.use(express.static('public'));
 
+// Array para armazenar usuários (pode ser substituído por um banco de dados em um ambiente de produção)
 const users = [
   { email: 'user1@example.com', password: 'password1', name: 'User 1' },
   { email: 'user2@example.com', password: 'password2', name: 'User 2' },
@@ -32,7 +40,7 @@ app.post('/login', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
-// ... (código existente)
+
 
 // Rota para exibir a página de registro de usuários
 app.get('/register', (req, res) => {
