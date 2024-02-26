@@ -21,8 +21,8 @@ app.post('/login', (req, res) => {
   const user = users.find(u => u.email === email && u.password === password);
 
   if (user) {
-    // Redirecionar para a página de perfil do usuário
-    res.render('profile', { user });
+    // Redirecionar para a página de boas-vindas
+    res.render('welcome', { user });
   } else {
     // Exibir mensagem de erro na página de login
     res.render('index', { error: 'Credenciais inválidas. Tente novamente.' });
